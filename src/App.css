@@ -1,38 +1,81 @@
 .App {
   text-align: center;
+  width: 100%;
+  height: auto;
+  margin: 5px;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Base styles for your images */
+.card > img {
+  height: 100%;
+  width: 100%;
 }
+.card {
+  height: 100%;
+  width: 100%;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container{
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 10%;
+
+}
+.row{
+  width: 100%;
+}
+.form{
+  margin-bottom: 10%;
+  margin-top: 5%;
+
+}
+.button{
+  margin-bottom: 10%;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #007bff;
 }
 
-.App-link {
-  color: #61dafb;
+.button:hover {
+  background-color: #0056b3;
+}
+.form-side{
+  width: 100%;
+
+}
+.form > input {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 60%; /* Set the width to your desired value, e.g., 300px */
+  padding: 10px; /* Add padding for spacing inside the input box */
+  border: 1px solid #ccc; /* Add a border for better visibility */
+  border-radius: 5px; 
+  margin-right: 10px;
+}
+/* Media query for screens larger than 768px (adjust as needed) */
+@media (min-width: 768px) {
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns in larger screens */
+    gap: 10px; /* Adjust the gap between images as needed */
+    height: 100vh;
+
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Media query for screens smaller than 768px (adjust as needed) */
+@media (max-width: 347px) {
+  .image-grid {
+    display: flex;
+    grid-template-columns: repeat(2, 1fr); /* 4 columns in larger screens */
+    gap: 10px; /* Adjust the gap between images as needed */
+    height: 100vh;
   }
-  to {
-    transform: rotate(360deg);
-  }
+  
 }

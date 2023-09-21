@@ -1,0 +1,117 @@
+display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns in smaller screens */
+  gap: 10px; /* Adjust the gap between images as needed */
+  height: 100vh;
+
+
+  import './App.css';
+  import React, { useState } from 'react';
+  import galleryList from "./Components/data";
+  
+  import { useDrag, useDrop } from "react-dnd";
+  
+  
+  import ImageGalleryUpload from './Components/ImageGalleryUpload';
+  const Card = ({src, title, id, index}) => {
+    const ref = React.useRef(null);
+    return (
+      <div className="card">
+        <img src={src} alt={title} />
+      </div>
+    );
+  
+  }
+  
+  function App() {
+    const [images, setImages] = React.useState(galleryList);
+    const ref = React.useRef(null); 
+    const { id, img, title } = image;
+    const [{ isDragging }, drag] = useDrag({
+      type: "image",
+      item: () => {
+        return { id, index };
+      },
+      collect: (monitor) => {
+        return {
+          isDragging: monitor.isDragging()
+        };
+      }
+  });
+    
+    return (
+      <div className="App">
+  
+        <main className='image-grid'>
+          {React.Children.toArray(
+            images.map((image, index) => (
+                <Card
+                  key={id}
+                  src={image.img}66
+                  title={image.title}
+                  id={image.id}
+                  index={index}
+                />
+              
+            ))
+          )}
+        </main>
+       
+      
+  
+      </div>
+    );
+  }
+  
+  export default App;
+  
+
+  import './App.css';
+  import React from 'react';
+  import galleryList from "./Components/data";
+  import { useDrag, useDrop } from "react-dnd";
+  
+  import ImageGalleryUpload from './Components/ImageGalleryUpload';
+  
+  const Card = ({ src, title, id, index  }) => {
+    const ref = React.useRef(null);
+  
+    const [, drag] = useDrag({
+      type: "image",
+      item: { type: "image" },
+    });
+  
+    // Attach the drag ref to the card element
+    drag(ref);
+  
+    return (
+      <div ref={ref} className="card">
+        <img src={src} alt={title} />
+      </div>
+    );
+  }
+  
+  function App() {
+    const [images, setImages] = React.useState(galleryList);
+  
+    return (
+      <div className="App">
+        <main className='image-grid'>
+          {images.map((image, index) => {
+            const { id, img, title } = image;
+  
+            return (
+              <div key={id} className="draggable-card">
+                <Card src={img} title={title} />
+              </div>
+            );
+          })}
+        </main>
+      </div>
+    );
+  }
+
+  <Route index element = { <Login></Login> }></Route>
+  
+  export default App;
+  
+  
