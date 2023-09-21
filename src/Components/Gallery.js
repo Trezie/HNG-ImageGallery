@@ -65,19 +65,23 @@ const Gallery = () => {
     });
   }, []);
   return (
-    <main className='image-grid'>
-      {React.Children.toArray(
-        images.map((image, index) => (
-          <Card
-            src={image.img}
-            title={image.title}
-            id={image.id}
-            index={index}
-            moveImage={moveImage}
-          />
-        ))
-      )}
-    </main>
+    <div>
+        <h1 className="topic">Beautiful Tourist Locations</h1>
+        <main className='image-grid'>
+            
+        {React.Children.toArray(
+            images.map((image, index) => (
+            <Card
+                src={image.img}
+                title={image.title}
+                id={image.id}
+                index={index}
+                moveImage={moveImage}
+            />
+            ))
+        )}
+        </main>
+    </div>
   );
 };
 export default Gallery;
